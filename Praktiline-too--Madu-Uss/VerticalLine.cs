@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Praktiline_too__Madu_Uss
 {
-    internal class VerticalLine : Figure
+    internal class VerticalLine : Figure //Päritakse figuurilt
     {
         public VerticalLine(int yUp, int yDown, int x, char sym)
         {

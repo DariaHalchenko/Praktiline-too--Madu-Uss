@@ -28,7 +28,7 @@ namespace Praktiline_too__Madu_Uss
             sym= p.sym;
         }
 
-        public void Move(int offset, Direction direction) 
+        internal void Move(int offset,Direction direction) 
         {
             if (direction == Direction.RIGHT)
             {
@@ -54,6 +54,11 @@ namespace Praktiline_too__Madu_Uss
             Console.Write(sym);
         }
 
+        public void Clear()
+        {
+            sym = ' ';
+            Draw();
+        }
         public override string ToString()
         {
             return x + ", " + y + ", " + sym;
