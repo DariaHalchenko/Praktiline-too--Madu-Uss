@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Praktiline_too__Madu_Uss
 {
-    internal class Point
+    public class Point
     {
         public int x;
         public int y;
