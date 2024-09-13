@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Praktiline_too__Madu_Uss
 {
-    internal class HorizontalLine : Figure //Päritakse figuurilt
+    class HorizontalLine : Figure //Päritakse figuurilt
     {
         public HorizontalLine(int xLeft, int xRight, int y, char sym)
         {
@@ -16,6 +16,13 @@ namespace Praktiline_too__Madu_Uss
                 Point p = new Point (x,y, sym);
                 pList.Add(p);
             }
+        }
+        public override void Drow()
+        {
+            Console.ForegroundColor = ConsoleColor.Yellow;
+
+            base.Drow();
+            Console.ForegroundColor= ConsoleColor.White;
         }
     }
 }  
