@@ -10,15 +10,15 @@ namespace Praktiline_too__Madu_Uss
     class Snake : Figure
     {
         public Direction direction;
-        public Snake(Point tail, int lenght, Direction _direction) 
+        public Snake(Point tail, int lenght, Direction _direction)
         {
             direction = _direction;
             pList = new List<Point>();
             for (int i = 0; i < lenght; i++)
             {
                 Point p = new Point(tail);
-                p.Move( i, direction );
-                pList.Add( p );
+                p.Move(i, direction);
+                pList.Add(p);
             }
         }
         internal void Move()
@@ -65,16 +65,21 @@ namespace Praktiline_too__Madu_Uss
         internal bool Eat(Point food)
         {
             Point head = GetNextPoint();
-            if ( head.IsHit(food) )
+            if (head.IsHit(food))
             {
-                food.sym = head.sym;
-                pList.Add( food );  
+                food.symbol = head.symbol;
+                pList.Add(food);
                 return true;
             }
             else
             {
                 return false;
-            }  
+            }
+        }
+        // цвет змейки
+        public override void Drow()
+        {
+            Console.ForegroundColor = ConsoleColor.Blue;
         }
     }
 }

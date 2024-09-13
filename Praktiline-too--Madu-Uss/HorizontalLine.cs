@@ -13,16 +13,18 @@ namespace Praktiline_too__Madu_Uss
             pList = new List<Point>();
             for (int x = xLeft; x <= xRight; x++)
             {
-                Point p = new Point (x,y, sym);
+                Point p = new Point(x, y, sym);
                 pList.Add(p);
             }
         }
+
+        //цвет рамки
         public override void Drow()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
 
             base.Drow();
-            Console.ForegroundColor= ConsoleColor.White;
+            Console.ForegroundColor = ConsoleColor.DarkYellow;
         }
     }
-}  
+}

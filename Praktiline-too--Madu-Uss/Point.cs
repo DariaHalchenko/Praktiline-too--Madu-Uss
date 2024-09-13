@@ -10,25 +10,25 @@ namespace Praktiline_too__Madu_Uss
     {
         public int x;
         public int y;
-        public char sym;
+        public char symbol;
 
-        public Point() 
+        public Point()
         {
         }
-        public Point(int _x, int _y, char _sym)
+        public Point(int _x, int _y, char _symbol)
         {
-            x= _x;
-            y= _y;
-            sym= _sym;
+            x = _x;
+            y = _y;
+            symbol = _symbol;
         }
         public Point(Point p)
-        { 
-            x= p.x;
-            y= p.y;
-            sym= p.sym;
+        {
+            x = p.x;
+            y = p.y;
+            symbol = p.symbol;
         }
 
-        internal void Move(int offset,Direction direction) 
+        internal void Move(int offset, Direction direction)
         {
             if (direction == Direction.RIGHT)
             {
@@ -56,17 +56,17 @@ namespace Praktiline_too__Madu_Uss
         public void Draw()
         {
             Console.SetCursorPosition(x, y);
-            Console.Write(sym);
+            Console.Write(symbol);
         }
 
         public void Clear()
         {
-            sym = ' ';
+            symbol = ' ';
             Draw();
         }
         public override string ToString()
         {
-            return x + ", " + y + ", " + sym;
+            return x + ", " + y + ", " + symbol;
         }
     }
 }
