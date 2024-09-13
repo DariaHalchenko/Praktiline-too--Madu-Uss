@@ -14,8 +14,8 @@ namespace Praktiline_too__Madu_Uss
             wallList = new List<Figure>();
 
             //joonistusraamid
-            HorizontalLine upLine = new HorizontalLine(0, mapWidth - 2, 0, '-');
-            HorizontalLine downLine = new HorizontalLine(0, mapWidth - 2, mapHeight - 1, '_');
+            HorizontalLine upLine = new HorizontalLine(0, mapWidth - 2, 0, '=');
+            HorizontalLine downLine = new HorizontalLine(0, mapWidth - 2, mapHeight - 1, '=');
             VerticalLine leftLine = new VerticalLine(0, mapHeight - 1, 0, '|');
             VerticalLine rightLine = new VerticalLine(0, mapHeight - 1, mapWidth - 2, '|');
             wallList.Add(upLine);
@@ -43,3 +43,4 @@ namespace Praktiline_too__Madu_Uss
         }
     }
 }
+

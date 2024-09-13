@@ -21,10 +21,10 @@ namespace Praktiline_too__Madu_Uss
         //цвет рамки
         public override void Drow()
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Green;
 
             base.Drow();
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
+            Console.ForegroundColor = ConsoleColor.DarkGreen;
         }
     }
 }

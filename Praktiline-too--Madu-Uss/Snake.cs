@@ -10,17 +10,23 @@ namespace Praktiline_too__Madu_Uss
     class Snake : Figure
     {
         public Direction direction;
-        public Snake(Point tail, int lenght, Direction _direction)
+        public kiiruse_muutus kiiruseMuutus;
+
+        public Snake(Point tail, int length, Direction _direction, kiiruse_muutus _kiiruseMuutus)
         {
+
+            kiiruseMuutus = _kiiruseMuutus;
+
             direction = _direction;
             pList = new List<Point>();
-            for (int i = 0; i < lenght; i++)
+            for (int i = 0; i < length; i++)
             {
                 Point p = new Point(tail);
                 p.Move(i, direction);
                 pList.Add(p);
             }
         }
+
         internal void Move()
         {
             Point tail = pList.First();
