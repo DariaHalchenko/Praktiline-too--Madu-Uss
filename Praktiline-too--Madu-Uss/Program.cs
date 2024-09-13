@@ -12,7 +12,7 @@ namespace Praktiline_too__Madu_Uss
     {
         static void Main(string[] args)
         {
-            Console.SetBufferSize(80, 25);
+            Console.SetWindowSize(80, 25); 
 
             Walls walls = new Walls(80, 25);
             walls.Draw();

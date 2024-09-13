@@ -8,9 +8,9 @@ namespace Praktiline_too__Madu_Uss
 {
     class FoodCreator
     {
-        int mapWidht;
-        int mapHeight;
-        char sym;
+        private int mapWidht;
+        private int mapHeight;
+        private char sym;
 
         Random Random = new Random();
 
