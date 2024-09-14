@@ -18,7 +18,7 @@ namespace Praktiline_too__Madu_Uss
             walls.Draw();
 
             //скорость
-            kiiruse_muutus kiiruseMuutus = new kiiruse_muutus(10, 5, 55);
+            kiiruse_muutus kiiruseMuutus = new kiiruse_muutus(10, 5, 35);
             //Создание змейки
             Point p = new Point(4, 5, 'o');
             Snake snake = new Snake(p, 4, Direction.RIGHT, kiiruseMuutus);
@@ -35,6 +35,9 @@ namespace Praktiline_too__Madu_Uss
                 food.Draw();
             }
 
+            mängija_punktid MängijaPunktid = new mängija_punktid();
+
+
             while (true)
             {
                 if (walls.IsHit(snake) || snake.IsHitTail())
@@ -50,11 +53,15 @@ namespace Praktiline_too__Madu_Uss
                         if (foodItems[i].symbol == '+')
                         {
                             kiiruseMuutus.SuurendaKiirus(); // Увеличиваем скорость
+
                         }
                         else if (foodItems[i].symbol == '-')
                         {
                             kiiruseMuutus.KiirustVähendada(); // Уменьшаем скорость
                         }
+
+                        //Очки увеличиваются на 1.
+                        MängijaPunktid.lisaPunkte(1);
 
                         // Если еда съедена, создаём её на новом месте
                         Point newFood = foodCreator.CreateFood();
@@ -64,14 +71,18 @@ namespace Praktiline_too__Madu_Uss
                 }
 
                 snake.Move();
-                Thread.Sleep(kiiruseMuutus.Kiirus() * 20);
+                Thread.Sleep(kiiruseMuutus.Kiirus() * 15);
 
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo key = Console.ReadKey();
                     snake.HandleKey(key.Key);
                 }
+
+                MängijaPunktid.Skoori_kuva();
             }
+
+            Console.SetCursorPosition(0, 1);
         }
     }
 }

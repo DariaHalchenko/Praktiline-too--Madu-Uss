@@ -21,16 +21,16 @@ namespace Praktiline_too__Madu_Uss
         // Увеличение скорости
         public void SuurendaKiirus()
         {
-            if (kiirus > minKiirus)
+            if (kiirus > minKiirus )
             {
-                kiirus -= 15;
+                kiirus -= 5;
             }
         }
 
         // Уменьшение скорости
         public void KiirustVähendada()
         {
-            if (kiirus < maxKiirus)
+            if (kiirus < maxKiirus )
             {
                 kiirus += 5;
             }
