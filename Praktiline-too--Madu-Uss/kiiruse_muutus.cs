@@ -17,13 +17,13 @@ namespace Praktiline_too__Madu_Uss
         // Увеличение скорости
         public void SuurendaKiirus()
         {
-            kiirus = kiirus * 1.5;
+            kiirus = kiirus * 0.5;
         }
 
         // Уменьшение скорости
         public void KiirustVähendada()
         {
-            kiirus = kiirus * 0.5;
+            kiirus = kiirus * 1.5;
         }
         public int Kiirus()
         {

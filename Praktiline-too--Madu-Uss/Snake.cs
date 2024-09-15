@@ -14,11 +14,11 @@ namespace Praktiline_too__Madu_Uss
 
         public Snake(Point tail, int length, Direction _direction, kiiruse_muutus _kiiruseMuutus)
         {
-
+            
             kiiruseMuutus = _kiiruseMuutus;
-
             direction = _direction;
             pList = new List<Point>();
+            
             for (int i = 0; i < length; i++)
             {
                 Point p = new Point(tail);
@@ -81,11 +81,6 @@ namespace Praktiline_too__Madu_Uss
             {
                 return false;
             }
-        }
-        // цвет змейки
-        public override void Drow()
-        {
-            Console.ForegroundColor = ConsoleColor.Blue;
         }
     }
 }

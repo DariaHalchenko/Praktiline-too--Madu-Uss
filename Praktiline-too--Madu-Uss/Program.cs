@@ -18,7 +18,7 @@ namespace Praktiline_too__Madu_Uss
             walls.Draw();
 
             //скорость
-            kiiruse_muutus kiiruseMuutus = new kiiruse_muutus(100);
+            kiiruse_muutus kiiruseMuutus = new kiiruse_muutus(150);
 
             //Создание змейки
             Point p = new Point(4, 5, 'o');
@@ -31,12 +31,14 @@ namespace Praktiline_too__Madu_Uss
             List<Point> foodItems = foodCreator.food_for_snake(5);
 
             mängija_punktid MängijaPunktid = new mängija_punktid();
+
+            Madu_värv madu_Värv = new Madu_värv();
+
             // Отрисовывка еды
             foreach (var food in foodItems)
             {
                 food.Draw();
             }
-
 
             while (true)
             {
@@ -49,6 +51,7 @@ namespace Praktiline_too__Madu_Uss
                 {
                     if (snake.Eat(foodItems[i]))
                     {
+                        madu_Värv.Värvi_muuta(foodItems[i].symbol);
 
                         MängijaPunktid.lisaPunkte(foodItems[i].symbol);
                         MängijaPunktid.Skoori_kuva();
@@ -57,13 +60,10 @@ namespace Praktiline_too__Madu_Uss
                         if (foodItems[i].symbol == '+')
                         {
                             kiiruseMuutus.SuurendaKiirus(); // Увеличиваем скорость
-                            Console.WriteLine(kiiruseMuutus.Kiirus());
-
                         }
                         else if (foodItems[i].symbol == '-')
                         {
                             kiiruseMuutus.KiirustVähendada(); // Уменьшаем скорость
-                            Console.WriteLine(kiiruseMuutus.Kiirus());
                         }
 
                         // Если еда съедена, создаём её на новом месте
