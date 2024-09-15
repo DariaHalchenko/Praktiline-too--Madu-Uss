@@ -18,24 +18,24 @@ namespace Praktiline_too__Madu_Uss
             walls.Draw();
 
             //скорость
-            kiiruse_muutus kiiruseMuutus = new kiiruse_muutus(10, 5, 35);
+            kiiruse_muutus kiiruseMuutus = new kiiruse_muutus(100);
+
             //Создание змейки
             Point p = new Point(4, 5, 'o');
             Snake snake = new Snake(p, 4, Direction.RIGHT, kiiruseMuutus);
             snake.Drow();
 
             // Создание нескольких типов еды 
-            char[] food_Symbols = { '', '♡', '♥', '+', '-' };
+            char[] food_Symbols = { '⏹', '♡', '♥', '+', '-' };
             FoodCreator foodCreator = new FoodCreator(80, 25, food_Symbols);
             List<Point> foodItems = foodCreator.food_for_snake(5);
 
-            // Отрисовываем еду
+            mängija_punktid MängijaPunktid = new mängija_punktid();
+            // Отрисовывка еды
             foreach (var food in foodItems)
             {
                 food.Draw();
             }
-
-            mängija_punktid MängijaPunktid = new mängija_punktid();
 
 
             while (true)
@@ -49,19 +49,22 @@ namespace Praktiline_too__Madu_Uss
                 {
                     if (snake.Eat(foodItems[i]))
                     {
+
+                        MängijaPunktid.lisaPunkte(foodItems[i].symbol);
+                        MängijaPunktid.Skoori_kuva();
+
                         // Проверка, какой символ съела змейка: + или -
                         if (foodItems[i].symbol == '+')
                         {
                             kiiruseMuutus.SuurendaKiirus(); // Увеличиваем скорость
+                            Console.WriteLine(kiiruseMuutus.Kiirus());
 
                         }
                         else if (foodItems[i].symbol == '-')
                         {
                             kiiruseMuutus.KiirustVähendada(); // Уменьшаем скорость
+                            Console.WriteLine(kiiruseMuutus.Kiirus());
                         }
-
-                        //Очки увеличиваются на 1.
-                        MängijaPunktid.lisaPunkte(1);
 
                         // Если еда съедена, создаём её на новом месте
                         Point newFood = foodCreator.CreateFood();
@@ -78,10 +81,7 @@ namespace Praktiline_too__Madu_Uss
                     ConsoleKeyInfo key = Console.ReadKey();
                     snake.HandleKey(key.Key);
                 }
-
-                MängijaPunktid.Skoori_kuva();
             }
-
             Console.SetCursorPosition(0, 1);
         }
     }

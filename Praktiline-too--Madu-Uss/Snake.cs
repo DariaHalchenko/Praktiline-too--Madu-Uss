@@ -40,6 +40,7 @@ namespace Praktiline_too__Madu_Uss
         public Point GetNextPoint()
         {
             Point head = pList.Last();
+            pList.Last().symbol = 'o';
             Point nextPoint = new Point(head);
             nextPoint.Move(1, direction);
             return nextPoint;
@@ -73,7 +74,6 @@ namespace Praktiline_too__Madu_Uss
             Point head = GetNextPoint();
             if (head.IsHit(food))
             {
-                food.symbol = head.symbol;
                 pList.Add(food);
                 return true;
             }

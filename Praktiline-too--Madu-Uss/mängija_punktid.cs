@@ -14,10 +14,29 @@ namespace Praktiline_too__Madu_Uss
         {
             kontrollida = 0;
         }
-        //увеличивает очки 
-        public void lisaPunkte(int punkte)
+        //увеличивает очки  
+        public void lisaPunkte(int FoodSymbols)
         {
-            kontrollida += punkte;
+            if (FoodSymbols == '+')
+            {
+                kontrollida += 1;
+            }
+            else if (FoodSymbols == '-')
+            {
+                kontrollida += 1;
+            }
+            else if (FoodSymbols == '⏹')
+            {
+                kontrollida += 5;
+            }
+            else if (FoodSymbols == '♡')
+            {
+                kontrollida += 2;
+            }
+            else if (FoodSymbols == '♥')
+            {
+                kontrollida += 4;
+            }
         }
         public void Skoori_kuva()
         {
