@@ -25,11 +25,11 @@ namespace Praktiline_too__Madu_Uss
             {
                 kontrollida += 1;
             }
-            else if (FoodSymbols == '⏹')
+            else if (FoodSymbols == '¤')
             {
                 kontrollida += 5;
             }
-            else if (FoodSymbols == '♡')
+            else if (FoodSymbols == '&')
             {
                 kontrollida += 2;
             }

@@ -24,7 +24,7 @@ namespace Praktiline_too__Madu_Uss
             Console.ForegroundColor = ConsoleColor.Green;
 
             base.Drow();
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
+            Console.ForegroundColor = ConsoleColor.Green;
         }
     }
 }

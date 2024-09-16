@@ -18,11 +18,11 @@ namespace Praktiline_too__Madu_Uss
             {
                 Console.ForegroundColor = ConsoleColor.Red;
             }
-            else if (värv == '⏹')
+            else if (värv == '¤')
             {
                 Console.ForegroundColor = ConsoleColor.Yellow;
             }
-            else if (värv == '♡')
+            else if (värv == '&')
             {
                 Console.ForegroundColor = ConsoleColor.Cyan;
             }

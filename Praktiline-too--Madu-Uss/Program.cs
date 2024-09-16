@@ -26,7 +26,7 @@ namespace Praktiline_too__Madu_Uss
             snake.Drow();
 
             // Создание нескольких типов еды 
-            char[] food_Symbols = { '⏹', '♡', '♥', '+', '-' };
+            char[] food_Symbols = { '¤', '&', '♥', '+', '-' };
             FoodCreator foodCreator = new FoodCreator(80, 25, food_Symbols);
             List<Point> foodItems = foodCreator.food_for_snake(5);
 

@@ -35,6 +35,7 @@ namespace Praktiline_too__Madu_Uss
             for (int i = 0; i < count; i++)
             {
                 foodItems.Add(CreateFood());
+                Console.ForegroundColor = ConsoleColor.White;
             }
             return foodItems;
         }
