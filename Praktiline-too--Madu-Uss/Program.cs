@@ -16,7 +16,7 @@ namespace Praktiline_too__Madu_Uss
             Console.SetWindowSize(80, 25);
 
             Console.Clear();
-            Console.WriteLine("Vali tasand:  (1 - Level 1, 2 - Level 2, 3 - Level 3)");
+            Console.WriteLine("Vali tasand:  (1 - Level 1/ 2 - Level 2/ 3 - Level 3)");
             Console.Write("Sisesta tasemenumber: ");
 
             int valitud_tase = int.Parse(Console.ReadLine());;

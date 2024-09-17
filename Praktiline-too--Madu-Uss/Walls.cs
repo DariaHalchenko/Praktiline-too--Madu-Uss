@@ -14,10 +14,10 @@ namespace Praktiline_too__Madu_Uss
             wallList = new List<Figure>();
 
             //joonistusraamid
-            HorizontalLine upLine = new HorizontalLine(1, mapWidth - 2, 1, '=');
-            HorizontalLine downLine = new HorizontalLine(0, mapWidth - 2, mapHeight - 1, '=');
-            VerticalLine leftLine = new VerticalLine(1, mapHeight - 1, 0, '|');
-            VerticalLine rightLine = new VerticalLine(1, mapHeight - 1, mapWidth - 2, '|');
+            HorizontalLine upLine = new HorizontalLine(1, mapWidth - 2, 3, '=');
+            HorizontalLine downLine = new HorizontalLine(1, mapWidth - 2, mapHeight - 1, '=');
+            VerticalLine leftLine = new VerticalLine(3, mapHeight - 1, 0, '|');
+            VerticalLine rightLine = new VerticalLine(3, mapHeight - 1, mapWidth - 1, '|');
             wallList.Add(upLine);
             wallList.Add(downLine);
             wallList.Add(leftLine);

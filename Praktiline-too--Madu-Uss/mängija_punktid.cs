@@ -60,7 +60,7 @@ namespace Praktiline_too__Madu_Uss
         }
         public void Skoori_kuva()
         {
-            Console.SetCursorPosition(0, 0);
+            Console.SetCursorPosition(0, 2);
             Console.WriteLine("Mängija tulemus: " + kontrollida);
         }
         public int Saada_tulemus()
