@@ -30,6 +30,14 @@ namespace Praktiline_too__Madu_Uss
             {
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
             }
+            else if (värv == '#')
+            {
+                Console.ForegroundColor = ConsoleColor.Gray;
+            }
+            else if (värv == '%')
+            {
+                Console.ForegroundColor = ConsoleColor.DarkGreen;
+            }
         }
     }
 }

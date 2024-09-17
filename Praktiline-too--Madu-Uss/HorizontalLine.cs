@@ -17,8 +17,6 @@ namespace Praktiline_too__Madu_Uss
                 pList.Add(p);
             }
         }
-
-        //цвет рамки
         public override void Drow()
         {
             Console.ForegroundColor = ConsoleColor.Green;
