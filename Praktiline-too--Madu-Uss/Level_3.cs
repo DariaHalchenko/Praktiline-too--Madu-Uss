@@ -6,18 +6,18 @@ using System.Threading.Tasks;
 
 namespace Praktiline_too__Madu_Uss
 {
-    public class Level_2
+    public class Level_3
     {
         private Walls walls;
         private Snake snake;
         private FoodCreator foodCreator;
         private List<Point> foodItems;
         private kiiruse_muutus kiiruseMuutus;
-        private mängija_punktid MängijaPunktid;   
-        private Madu_värv madu_Värv;
-        public void Level_2_Play()
+        private mängija_punktid MängijaPunktid; 
+        private List<Takistus_mängus> takistus_Mängus;
+        public void Level_3_Play()
         {
-            Walls walls = new Walls(50, 25);
+            Walls walls = new Walls(65, 20);
             walls.Draw();
 
             //скорость
@@ -29,17 +29,25 @@ namespace Praktiline_too__Madu_Uss
             snake.Drow();
 
             // Создание нескольких типов еды 
-            char[] food_Symbols = { '¤', '&', '♥', '+', '-' };
-            FoodCreator foodCreator = new FoodCreator(50, 25, food_Symbols);
-            List<Point> foodItems = foodCreator.food_for_snake(5);
+            char[] food_Symbols = { '♦','♣', '♥', '€' };
+            FoodCreator foodCreator = new FoodCreator(65, 20, food_Symbols);
+            List<Point> foodItems = foodCreator.food_for_snake(4);
 
             mängija_punktid MängijaPunktid = new mängija_punktid();
+            
+            takistus_Mängus = Takistus_mängus.Genereerida_takistus_mängus(10, 65, 20);
+            foreach (var obstacle in takistus_Mängus)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                obstacle.Draw();
+                Console.ResetColor();
+            } 
 
-            Madu_värv madu_Värv = new Madu_värv();
 
             // Отрисовывка еды
             foreach (var food in foodItems)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 food.Draw();
             }
 
@@ -54,25 +62,15 @@ namespace Praktiline_too__Madu_Uss
                 {
                     if (snake.Eat(foodItems[i]))
                     {
-                        madu_Värv.Värvi_muuta(foodItems[i].symbol);
-
                         MängijaPunktid.lisaPunkte(foodItems[i].symbol);
                         MängijaPunktid.Skoori_kuva();
-
-                        // Проверка, какой символ съела змейка: + или -
-                        if (foodItems[i].symbol == '+')
-                        {
-                            kiiruseMuutus.SuurendaKiirus(); // Увеличиваем скорость
-                        }
-                        else if (foodItems[i].symbol == '-')
-                        {
-                            kiiruseMuutus.KiirustVähendada(); // Уменьшаем скорость
-                        }
 
                         // Если еда съедена, создаём её на новом месте
                         Point newFood = foodCreator.CreateFood();
                         foodItems[i] = newFood;
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         newFood.Draw();
+                        Console.ResetColor();
                     }
                 }
 

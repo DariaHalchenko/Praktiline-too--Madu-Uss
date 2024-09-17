@@ -45,6 +45,18 @@ namespace Praktiline_too__Madu_Uss
             {
                 kontrollida *= 2;
             }
+            else if (FoodSymbols == '€')
+            {
+                kontrollida += 10;
+            }
+            else if (FoodSymbols == '♦')
+            {
+                kontrollida -= 5;
+            }
+            else if (FoodSymbols == '♣')
+            {
+                kontrollida *= 3;
+            }
         }
         public void Skoori_kuva()
         {

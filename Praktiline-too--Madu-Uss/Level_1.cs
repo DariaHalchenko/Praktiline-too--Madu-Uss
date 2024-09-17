@@ -29,7 +29,7 @@ namespace Praktiline_too__Madu_Uss
             snake.Drow();
 
             char[] food_Symbols = { '¤', '&', '♥', '#', '%' };
-            foodCreator = new FoodCreator(40, 20, food_Symbols);
+            foodCreator = new FoodCreator(80, 25, food_Symbols);
             foodItems = foodCreator.food_for_snake(5);
 
             MängijaPunktid = new mängija_punktid();
