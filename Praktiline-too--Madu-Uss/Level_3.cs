@@ -14,35 +14,25 @@ namespace Praktiline_too__Madu_Uss
         private List<Point> foodItems;
         private kiiruse_muutus kiiruseMuutus;
         private mängija_punktid MängijaPunktid; 
-        private List<Takistus_mängus> takistus_Mängus;
         public void Level_3_Play()
         {
-            Walls walls = new Walls(65, 20);
+            Walls walls = new Walls(35, 20);
             walls.Draw();
 
             //скорость
-            kiiruse_muutus kiiruseMuutus = new kiiruse_muutus(30);
+            kiiruse_muutus kiiruseMuutus = new kiiruse_muutus(3);
 
             //Создание змейки
-            Point p = new Point(4, 5, 'o');
+            Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT, kiiruseMuutus);
             snake.Drow();
 
             // Создание нескольких типов еды 
             char[] food_Symbols = { '♦','♣', '♥', '€' };
-            FoodCreator foodCreator = new FoodCreator(65, 20, food_Symbols);
+            FoodCreator foodCreator = new FoodCreator(35, 20, food_Symbols);
             List<Point> foodItems = foodCreator.food_for_snake(4);
 
             mängija_punktid MängijaPunktid = new mängija_punktid();
-            
-            takistus_Mängus = Takistus_mängus.Genereerida_takistus_mängus(10, 65, 20);
-            foreach (var obstacle in takistus_Mängus)
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                obstacle.Draw();
-                Console.ResetColor();
-            } 
-
 
             // Отрисовывка еды
             foreach (var food in foodItems)
@@ -68,12 +58,9 @@ namespace Praktiline_too__Madu_Uss
                         // Если еда съедена, создаём её на новом месте
                         Point newFood = foodCreator.CreateFood();
                         foodItems[i] = newFood;
-                        Console.ForegroundColor = ConsoleColor.Yellow;
                         newFood.Draw();
-                        Console.ResetColor();
                     }
                 }
-
                 snake.Move();
                 Thread.Sleep(kiiruseMuutus.Kiirus() * 15);
 

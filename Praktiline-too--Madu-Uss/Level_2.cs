@@ -17,7 +17,7 @@ namespace Praktiline_too__Madu_Uss
         private Madu_värv madu_Värv;
         public void Level_2_Play()
         {
-            Walls walls = new Walls(50, 25);
+            Walls walls = new Walls(60, 25);
             walls.Draw();
 
             //скорость

@@ -37,6 +37,7 @@ namespace Praktiline_too__Madu_Uss
             // Отрисовываем еду
             foreach (var food in foodItems)
             {
+                Console.ForegroundColor = ConsoleColor.White;
                 food.Draw();
             }
 
