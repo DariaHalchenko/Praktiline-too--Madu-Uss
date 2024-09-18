@@ -20,6 +20,7 @@ namespace Praktiline_too__Madu_Uss
             AudioFileReader file = new AudioFileReader("../../../taustamuusika.mp3");
             player.Init(file);
             player.Play();
+            player.Volume = 0.3f;
         }
         public void PlayGameOver()
         {

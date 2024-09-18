@@ -15,11 +15,11 @@ namespace Praktiline_too__Madu_Uss
             Console.SetWindowSize(80, 25);
 
             Console.WriteLine("Sisesta oma nimi: ");
-            string nimi = Console.ReadLine();   
+            string nimi = Console.ReadLine(); 
+            
             mängija_punktid kontrollida = new mängija_punktid();
 
             Sounds sound = new Sounds("../../../");
-
             sound.Play();
 
             Console.Clear();
@@ -52,7 +52,7 @@ namespace Praktiline_too__Madu_Uss
 
                 kontrollida.Skoori_kuva();
 
-                Mängijad mängijad = new Mängijad(nimi, kontrollida.Saada_tulemus());
+                Mängijad mängijad = new Mängijad(nimi, kontrollida);
 
                 sound.PlayGameOver();
             }
