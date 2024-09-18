@@ -9,27 +9,22 @@ namespace Praktiline_too__Madu_Uss
 {
     internal class Mängijad
     {
-        private string Nimi;
+        private string _failiTee = @"..\..\..\Rekordid.txt";
 
-        private mängija_punktid kontrollida;
-        
-        public Mängijad(string nimi, mängija_punktid kontrollida)
-        {
-            this.Nimi = nimi;
-            this.kontrollida = kontrollida;
-            Salvesta_faili();
-        }
-        
-        public void Salvesta_faili()
+        public Mängijad() { }
+
+        public void Salvesta_faili(string Nimi, mängija_punktid punktid)
         {
             try
             {
-                StreamWriter sw = new StreamWriter(@"..\..\..\Rekordid.txt", true);
-                sw.WriteLine($"{Nimi}: {kontrollida.Saada_tulemus} points");
+                using (StreamWriter sw = new StreamWriter(_failiTee, true))
+                {
+                    sw.WriteLine($"{Nimi}: {punktid.Saada_tulemus()} points");
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                Console.WriteLine("Fail ei leitud");
+                Console.WriteLine(ex);
             }
         }
 
@@ -37,7 +32,7 @@ namespace Praktiline_too__Madu_Uss
         {
             try
             {
-                StreamReader sr = new StreamReader(@"..\..\..\Rekordid.txt");
+                StreamReader sr = new StreamReader(_failiTee);
                 string lines = sr.ReadToEnd();
                 Console.WriteLine(lines);
             }

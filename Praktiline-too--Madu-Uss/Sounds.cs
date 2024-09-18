@@ -9,31 +9,40 @@ namespace Praktiline_too__Madu_Uss
 {
     class Sounds
     {
-        IWavePlayer player = new WaveOutEvent();
+        private IWavePlayer player = new WaveOutEvent();
+        private AudioFileReader currentFile;
         private string pathToMedia;
         public Sounds(string pathToResources)
         {
             pathToMedia = pathToResources;
         }
-        public void Play() 
+        public void Play(string filePath)
         {
-            AudioFileReader file = new AudioFileReader("../../../taustamuusika.mp3");
-            player.Init(file);
-            player.Play();
+            Stop(); // Останавливаем текущее воспроизведение
+            currentFile = new AudioFileReader(filePath);
+            player.Init(currentFile);
             player.Volume = 0.3f;
+            player.Play();
         }
+
         public void PlayGameOver()
         {
-            AudioFileReader file = new AudioFileReader("../../../mängu_kaotada.mp3");
-            player.Init(file);
-            player.Play();
+            Play("../../../mängu_kaotada.mp3");
         }
+
         public void PlayEat()
         {
-            AudioFileReader file = new AudioFileReader("../../../söömine.mp3");
-            player.Init(file);
-            player.Play();
+            Play("../../../söömine.mp3");
+        }
+
+        public void Stop()
+        {
+            if (player.PlaybackState == PlaybackState.Playing)
+            {
+                player.Stop();
+                currentFile?.Dispose(); // Освобождаем ресурсы
+                currentFile = null; // Обнуляем текущий файл
+            }
         }
     }
 }
-

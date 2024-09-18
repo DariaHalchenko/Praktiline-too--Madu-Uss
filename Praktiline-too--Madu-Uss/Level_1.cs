@@ -8,31 +8,24 @@ namespace Praktiline_too__Madu_Uss
 {
     public class Level_1
     {
-        private Walls walls;
-        private Snake snake;
-        private FoodCreator foodCreator;
-        private List<Point> foodItems;
-        private kiiruse_muutus kiiruseMuutus;
-        private mängija_punktid MängijaPunktid;
-
-        public void Level_1_Play()
+        public void Level_1_Play(string nimi)
         {
             // Уменьшенное поле 
-            walls = new Walls(80, 25);
+            Walls walls = new Walls(80, 25);
             walls.Draw();
 
             // Увеличенние начальной скорости
-            kiiruseMuutus = new kiiruse_muutus(15);
+            kiiruse_muutus kiiruseMuutus = new kiiruse_muutus(15);
 
             Point p = new Point(4, 5, 'O');
-            snake = new Snake(p, 4, Direction.RIGHT, kiiruseMuutus);
+            Snake snake = new Snake(p, 4, Direction.RIGHT, kiiruseMuutus);
             snake.Drow();
 
             char[] food_Symbols = { '¤', '&', '♥', '#', '%' };
-            foodCreator = new FoodCreator(80, 25, food_Symbols);
-            foodItems = foodCreator.food_for_snake(5);
+            FoodCreator foodCreator = new FoodCreator(80, 25, food_Symbols);
+            List<Point> foodItems = foodCreator.food_for_snake(5);
 
-            MängijaPunktid = new mängija_punktid();
+            mängija_punktid kontrollida = new mängija_punktid();
 
             // Отрисовываем еду
             foreach (var food in foodItems)
@@ -44,6 +37,8 @@ namespace Praktiline_too__Madu_Uss
             {
                 if (walls.IsHit(snake) || snake.IsHitTail())
                 {
+                    Mängijad mängijad = new Mängijad();
+                    mängijad.Salvesta_faili(nimi, kontrollida);
                     break;
                 }
 
@@ -51,9 +46,9 @@ namespace Praktiline_too__Madu_Uss
                 {
                     if (snake.Eat(foodItems[i]))
                     {
-                        MängijaPunktid.lisaPunkte(foodItems[i].symbol);
+                        kontrollida.lisaPunkte(foodItems[i].symbol);
 
-                        MängijaPunktid.Skoori_kuva();
+                        kontrollida.Skoori_kuva();
 
                         Point newFood = foodCreator.CreateFood();
                         foodItems[i] = newFood;

@@ -6,16 +6,9 @@ using System.Threading.Tasks;
 
 namespace Praktiline_too__Madu_Uss
 {
-    public class Level_2
+    public class Level_2 
     {
-        private Walls walls;
-        private Snake snake;
-        private FoodCreator foodCreator;
-        private List<Point> foodItems;
-        private kiiruse_muutus kiiruseMuutus;
-        private mängija_punktid MängijaPunktid;   
-        private Madu_värv madu_Värv;
-        public void Level_2_Play()
+        public void Level_2_Play(string nimi)
         {
             Walls walls = new Walls(60, 25);
             walls.Draw();
@@ -30,10 +23,10 @@ namespace Praktiline_too__Madu_Uss
 
             // Создание нескольких типов еды 
             char[] food_Symbols = { '¤', '&', '♥', '+', '-' };
-            FoodCreator foodCreator = new FoodCreator(50, 25, food_Symbols);
+            FoodCreator foodCreator = new FoodCreator(60, 25, food_Symbols);
             List<Point> foodItems = foodCreator.food_for_snake(5);
 
-            mängija_punktid MängijaPunktid = new mängija_punktid();
+            mängija_punktid kontrollida = new mängija_punktid();
 
             Madu_värv madu_Värv = new Madu_värv();
 
@@ -47,6 +40,8 @@ namespace Praktiline_too__Madu_Uss
             {
                 if (walls.IsHit(snake) || snake.IsHitTail())
                 {
+                    Mängijad mängijad = new Mängijad();
+                    mängijad.Salvesta_faili(nimi, kontrollida);
                     break;
                 }
 
@@ -56,8 +51,8 @@ namespace Praktiline_too__Madu_Uss
                     {
                         madu_Värv.Värvi_muuta(foodItems[i].symbol);
 
-                        MängijaPunktid.lisaPunkte(foodItems[i].symbol);
-                        MängijaPunktid.Skoori_kuva();
+                        kontrollida.lisaPunkte(foodItems[i].symbol);
+                        kontrollida.Skoori_kuva();
 
                         // Проверка, какой символ съела змейка: + или -
                         if (foodItems[i].symbol == '+')

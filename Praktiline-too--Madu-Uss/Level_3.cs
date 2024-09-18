@@ -7,14 +7,8 @@ using System.Threading.Tasks;
 namespace Praktiline_too__Madu_Uss
 {
     public class Level_3
-    {
-        private Walls walls;
-        private Snake snake;
-        private FoodCreator foodCreator;
-        private List<Point> foodItems;
-        private kiiruse_muutus kiiruseMuutus;
-        private mängija_punktid MängijaPunktid; 
-        public void Level_3_Play()
+    { 
+        public void Level_3_Play(string nimi)
         {
             Walls walls = new Walls(35, 20);
             walls.Draw();
@@ -32,7 +26,7 @@ namespace Praktiline_too__Madu_Uss
             FoodCreator foodCreator = new FoodCreator(35, 20, food_Symbols);
             List<Point> foodItems = foodCreator.food_for_snake(4);
 
-            mängija_punktid MängijaPunktid = new mängija_punktid();
+            mängija_punktid kontrollida = new mängija_punktid();
 
             // Отрисовывка еды
             foreach (var food in foodItems)
@@ -44,6 +38,8 @@ namespace Praktiline_too__Madu_Uss
             {
                 if (walls.IsHit(snake) || snake.IsHitTail())
                 {
+                    Mängijad mängijad = new Mängijad();
+                    mängijad.Salvesta_faili(nimi, kontrollida);
                     break;
                 }
 
@@ -51,8 +47,8 @@ namespace Praktiline_too__Madu_Uss
                 {
                     if (snake.Eat(foodItems[i]))
                     {
-                        MängijaPunktid.lisaPunkte(foodItems[i].symbol);
-                        MängijaPunktid.Skoori_kuva();
+                        kontrollida.lisaPunkte(foodItems[i].symbol);
+                        kontrollida.Skoori_kuva();
 
                         // Если еда съедена, создаём её на новом месте
                         Point newFood = foodCreator.CreateFood();

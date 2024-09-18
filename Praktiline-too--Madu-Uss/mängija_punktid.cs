@@ -39,11 +39,11 @@ namespace Praktiline_too__Madu_Uss
             }
             else if (FoodSymbols == '#')
             {
-                kontrollida -= 10;
+                kontrollida = kontrollida - 10;
             }
             else if (FoodSymbols == '%')
             {
-                kontrollida *= 2;
+                kontrollida = kontrollida * 2;
             }
             else if (FoodSymbols == '€')
             {
@@ -51,11 +51,11 @@ namespace Praktiline_too__Madu_Uss
             }
             else if (FoodSymbols == '♦')
             {
-                kontrollida -= 5;
+                kontrollida = kontrollida - 5;
             }
             else if (FoodSymbols == '♣')
             {
-                kontrollida *= 3;
+                kontrollida = kontrollida * 3;
             }
         }
         public void Skoori_kuva()
