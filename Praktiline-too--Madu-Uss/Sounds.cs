@@ -9,7 +9,7 @@ namespace Praktiline_too__Madu_Uss
 {
     class Sounds
     {
-        IWavePlayer kusanie = new WaveOutEvent();
+        IWavePlayer player = new WaveOutEvent();
         private string pathToMedia;
         public Sounds(string pathToResources)
         {
@@ -18,20 +18,20 @@ namespace Praktiline_too__Madu_Uss
         public void Play() 
         {
             AudioFileReader file = new AudioFileReader("../../../taustamuusika.mp3");
-            kusanie.Init(file);
-            kusanie.Play();
+            player.Init(file);
+            player.Play();
         }
         public void PlayGameOver()
         {
             AudioFileReader file = new AudioFileReader("../../../mängu_kaotada.mp3");
-            kusanie.Init(file);
-            kusanie.Play();
+            player.Init(file);
+            player.Play();
         }
         public void PlayEat()
         {
             AudioFileReader file = new AudioFileReader("../../../söömine.mp3");
-            kusanie.Init(file);
-            kusanie.Play();
+            player.Init(file);
+            player.Play();
         }
     }
 }
