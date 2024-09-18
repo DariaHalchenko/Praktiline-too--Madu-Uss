@@ -15,19 +15,19 @@ namespace Praktiline_too__Madu_Uss
         {
             pathToMedia = pathToResources;
         }
-        public void Play()
+        public void Play() 
         {
             AudioFileReader file = new AudioFileReader("../../../taustamuusika.mp3");
             kusanie.Init(file);
             kusanie.Play();
         }
-        public void Play(string songName)
+        public void PlayGameOver()
         {
             AudioFileReader file = new AudioFileReader("../../../mängu_kaotada.mp3");
             kusanie.Init(file);
             kusanie.Play();
         }
-        public void PlayEat(string songName)
+        public void PlayEat()
         {
             AudioFileReader file = new AudioFileReader("../../../söömine.mp3");
             kusanie.Init(file);

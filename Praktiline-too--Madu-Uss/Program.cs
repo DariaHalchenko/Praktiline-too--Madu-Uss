@@ -18,6 +18,10 @@ namespace Praktiline_too__Madu_Uss
             string nimi = Console.ReadLine();   
             mängija_punktid kontrollida = new mängija_punktid();
 
+            Sounds sound = new Sounds("../../../");
+
+            sound.Play();
+
             Console.Clear();
             Console.WriteLine("Vali tasand:  (1 - Level 1/ 2 - Level 2/ 3 - Level 3)");
             Console.Write("Sisesta tasemenumber: ");
@@ -31,21 +35,26 @@ namespace Praktiline_too__Madu_Uss
                 {
                     Level_1 level_1 = new Level_1();
                     level_1.Level_1_Play();
+                    sound.PlayEat();
                 }
                 else if (valitud_tase == 2)
                 {
                     Level_2 level_2 = new Level_2();
                     level_2.Level_2_Play();
+                    sound.PlayEat();
                 }
                 else if (valitud_tase == 3)
                 {
                     Level_3 level_3 = new Level_3();
                     level_3.Level_3_Play();
+                    sound.PlayEat();
                 }
 
                 kontrollida.Skoori_kuva();
 
                 Mängijad mängijad = new Mängijad(nimi, kontrollida.Saada_tulemus());
+
+                sound.PlayGameOver();
             }
             else
             {
