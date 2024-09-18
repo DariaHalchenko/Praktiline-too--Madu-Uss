@@ -12,8 +12,11 @@ namespace Praktiline_too__Madu_Uss
     {
         static void Main(string[] args)
         {
-
             Console.SetWindowSize(80, 25);
+
+            Console.WriteLine("Sisesta oma nimi: ");
+            string nimi = Console.ReadLine();   
+            mängija_punktid kontrollida = new mängija_punktid();
 
             Console.Clear();
             Console.WriteLine("Vali tasand:  (1 - Level 1/ 2 - Level 2/ 3 - Level 3)");
@@ -39,6 +42,10 @@ namespace Praktiline_too__Madu_Uss
                     Level_3 level_3 = new Level_3();
                     level_3.Level_3_Play();
                 }
+
+                kontrollida.Skoori_kuva();
+
+                Mängijad mängijad = new Mängijad(nimi, kontrollida.Saada_tulemus());
             }
             else
             {
