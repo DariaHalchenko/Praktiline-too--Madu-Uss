@@ -13,27 +13,27 @@ namespace Praktiline_too__Madu_Uss
             Walls walls = new Walls(35, 20);
             walls.Draw();
 
-            //скорость
+            //kiirus (скорость)
             kiiruse_muutus kiiruseMuutus = new kiiruse_muutus(3);
 
-            //Создание змейки
+            //Madu loomine (Создание змейки)
             Point p = new Point(4, 5, '*');
             Snake snake = new Snake(p, 4, Direction.RIGHT, kiiruseMuutus);
             snake.Drow();
 
-            // Создание нескольких типов еды 
+            //Mitme toidutüübi loomine  (Создание нескольких типов еды) 
             char[] food_Symbols = { '♦','♣', '♥', '€' };
             FoodCreator foodCreator = new FoodCreator(35, 20, food_Symbols);
             List<Point> foodItems = foodCreator.food_for_snake(4);
 
             mängija_punktid kontrollida = new mängija_punktid();
 
-            // Отрисовывка еды
+            //Toidu joonistamine (Отрисовывка еды)
             foreach (var food in foodItems)
             {
                 food.Draw();
             }
-
+            //faili salvestamine (сохранение в файл)
             while (true)
             {
                 if (walls.IsHit(snake) || snake.IsHitTail())
@@ -50,7 +50,7 @@ namespace Praktiline_too__Madu_Uss
                         kontrollida.lisaPunkte(foodItems[i].symbol);
                         kontrollida.Skoori_kuva();
 
-                        // Если еда съедена, создаём её на новом месте
+                        //Kui toit on söödud, loome selle uude kohta (Если еда съедена, создаём её на новом месте)
                         Point newFood = foodCreator.CreateFood();
                         foodItems[i] = newFood;
                         newFood.Draw();

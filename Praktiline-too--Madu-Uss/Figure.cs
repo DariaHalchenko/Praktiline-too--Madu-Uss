@@ -9,6 +9,7 @@ namespace Praktiline_too__Madu_Uss
     public class Figure
     {
         protected List<Point> pList;  //protected - Et muutuv pList oleks pärijatel nähtav
+        //Meetod joonistab kõik figuuripunktid (Метод рисует все точки фигуры)
         public virtual void Drow()
         {
             foreach (Point p in pList)

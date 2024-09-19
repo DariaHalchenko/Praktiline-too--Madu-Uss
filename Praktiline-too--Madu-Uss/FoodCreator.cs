@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Praktiline_too__Madu_Uss
 {
+    //Klass vastutab maotoidu loomise eest (Класс отвечает за создание змеиного питания)
     class FoodCreator
     {
         private int mapWidht;
@@ -20,7 +21,8 @@ namespace Praktiline_too__Madu_Uss
             this.mapHeight = mapHeight;
             this.foodSymbols = food_Symbols;
         }
-
+        //juhukoordinaadid välja piires ja massiivist juhuslikud sümbolid
+        //случайные координаты в пределах поля и случайные символом из массива
         public Point CreateFood()
         {
             int x = Random.Next(2, mapWidht - 2);

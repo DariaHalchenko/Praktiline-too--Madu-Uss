@@ -7,11 +7,13 @@ using System.Xml.Linq;
 
 namespace Praktiline_too__Madu_Uss
 {
+    //klass, mis juhib madude käitumist mängus (класс, который управляет поведением змейки в игре)
     class Snake : Figure
     {
-        public Direction direction;
+        public Direction direction; //hoiab suunda (хранит направление)
         public kiiruse_muutus kiiruseMuutus;
 
+        //loob etteantud parameetritega madu (создаёт змею с заданными параметрами)
         public Snake(Point tail, int length, Direction _direction, kiiruse_muutus _kiiruseMuutus)
         {
             
@@ -26,7 +28,7 @@ namespace Praktiline_too__Madu_Uss
                 pList.Add(p);
             }
         }
-
+        //Madu liigutamise funktsioon (Функция перемещения змеи)
         internal void Move()
         {
             Point tail = pList.First();
@@ -37,6 +39,8 @@ namespace Praktiline_too__Madu_Uss
             tail.Clear();
             head.Draw();
         }
+        //Meetod, loob madu pea koopia ja nihutab selle ühele positsioonile, kui madu liigub
+        //Метод, создает копию головы змеи и смещает ее на одну позицию, когда змея движется
         public Point GetNextPoint()
         {
             Point head = pList.Last();
@@ -45,7 +49,8 @@ namespace Praktiline_too__Madu_Uss
             nextPoint.Move(1, direction);
             return nextPoint;
         }
-
+        //Kontrollib, kas madu pea on tema enda sabale otsa sõitnud
+        //Проверяет, врезалась ли голова змеи в её собственный хвост
         internal bool IsHitTail()
         {
             var head = pList.Last();
@@ -56,7 +61,8 @@ namespace Praktiline_too__Madu_Uss
             }
             return false;
         }
-
+        //Haldab madu liikumist vastavalt vajutatud klahvile
+        //Управляет движением змеи в зависимости от нажатой клавиши
         public void HandleKey(ConsoleKey key)
         {
             if (key == ConsoleKey.LeftArrow)
@@ -68,7 +74,8 @@ namespace Praktiline_too__Madu_Uss
             else if (key == ConsoleKey.UpArrow)
                 direction = Direction.UP;
         }
-
+        //kui madu puutub kokku toiduga, siis suurendab ta pikkust
+        //если змея сталкивается с едой, то увеличивает её длину
         internal bool Eat(Point food)
         {
             Point head = GetNextPoint();

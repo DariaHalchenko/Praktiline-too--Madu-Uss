@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Praktiline_too__Madu_Uss
 {
-    //Mängija punktid класс, который будет  хранить и обновлять очки 
+    //klass, kes hoiab ja uuendab prille (класс, который будет  хранить и обновлять очки)
     class mängija_punktid
     {
         private int kontrollida;
@@ -14,7 +14,7 @@ namespace Praktiline_too__Madu_Uss
         {
             kontrollida = 0;
         }
-        //увеличивает очки  
+        //suurendab arvet (увеличивает счет) 
         public void lisaPunkte(int FoodSymbols)
         {
             if (FoodSymbols == '+')
@@ -58,6 +58,7 @@ namespace Praktiline_too__Madu_Uss
                 kontrollida = kontrollida * 3;
             }
         }
+        //kuvab arve (отображает счет)
         public void Skoori_kuva()
         {
             Console.SetCursorPosition(0, 2);

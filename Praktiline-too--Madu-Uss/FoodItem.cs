@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Praktiline_too__Madu_Uss
 {
-    //FoodItem klass mõjutada madude kiirust vastavalt sümbolile (- ja +).
+    //FoodItem klass mõjutada madude kiirust vastavalt sümbolile (- ja +)
+    //класс воздействовать на скорость змей в соответствии с символом (- и +)
     class FoodItem
     {
         private char symbol;

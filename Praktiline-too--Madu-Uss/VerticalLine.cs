@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Praktiline_too__Madu_Uss
 {
+    //vertikaalsete joonte loomine (создание вертикальных линий)
     internal class VerticalLine : Figure //Päritakse figuurilt
     {
         public VerticalLine(int yUp, int yDown, int x, char sym)

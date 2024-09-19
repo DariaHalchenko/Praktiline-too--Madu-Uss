@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Praktiline_too__Madu_Uss
 {
+    //horisontaalsete joonte loomine (создание горизонтальных линий)
     class HorizontalLine : Figure //Päritakse figuurilt
     {
         public HorizontalLine(int xLeft, int xRight, int y, char sym)

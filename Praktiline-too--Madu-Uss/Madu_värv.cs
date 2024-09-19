@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Praktiline_too__Madu_Uss
 {
+    //klass on mõeldud värvi muutmiseks vastavalt sümbolile(предназначен для изменения цвета в зависимости от символа)
     class Madu_värv
     {
         public void Värvi_muuta(char värv)
