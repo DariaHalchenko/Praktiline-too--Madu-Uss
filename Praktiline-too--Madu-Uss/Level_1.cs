@@ -14,11 +14,13 @@ namespace Praktiline_too__Madu_Uss
             Walls walls = new Walls(80, 25);
             walls.Draw();
 
+            Sounds sounds = new Sounds("../../../");
+
             //Suurenenud algkiirus (Увеличенние начальной скорости)
-            kiiruse_muutus kiiruseMuutus = new kiiruse_muutus(15);
+            kiiruse_muutus kiiruseMuutus = new kiiruse_muutus(10);
 
             //Madu loomine (Создание змейки)
-            Point p = new Point(4, 5, 'O');
+            Point p = new Point(4, 5, '0');
             Snake snake = new Snake(p, 4, Direction.RIGHT, kiiruseMuutus);
             snake.Drow();
 
@@ -39,6 +41,8 @@ namespace Praktiline_too__Madu_Uss
             {
                 if (walls.IsHit(snake) || snake.IsHitTail())
                 {
+                    sounds.PlayGameOver();
+                    Thread.Sleep(1000);
                     Mängijad mängijad = new Mängijad();
                     mängijad.Salvesta_faili(nimi, kontrollida);
                     break;
@@ -49,8 +53,9 @@ namespace Praktiline_too__Madu_Uss
                     if (snake.Eat(foodItems[i]))
                     {
                         kontrollida.lisaPunkte(foodItems[i].symbol);
-
                         kontrollida.Skoori_kuva();
+                        sounds.PlayEat(); 
+
                         //Kui toit on söödud, loome selle uude kohta (Если еда съедена, создаём её на новом месте)
                         Point newFood = foodCreator.CreateFood();
                         foodItems[i] = newFood;

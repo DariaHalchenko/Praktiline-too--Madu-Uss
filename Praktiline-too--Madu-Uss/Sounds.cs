@@ -42,8 +42,8 @@ namespace Praktiline_too__Madu_Uss
             if (player.PlaybackState == PlaybackState.Playing)
             {
                 player.Stop();
-                currentFile?.Dispose(); // Освобождаем ресурсы
-                currentFile = null; // Обнуляем текущий файл
+                currentFile?.Dispose(); 
+                currentFile = null; 
             }
         }
     }

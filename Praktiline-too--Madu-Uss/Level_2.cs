@@ -13,6 +13,8 @@ namespace Praktiline_too__Madu_Uss
             Walls walls = new Walls(60, 25);
             walls.Draw();
 
+            Sounds sounds = new Sounds("../../../");
+
             //kiirus (скорость)
             kiiruse_muutus kiiruseMuutus = new kiiruse_muutus(30);
 
@@ -40,6 +42,8 @@ namespace Praktiline_too__Madu_Uss
             {
                 if (walls.IsHit(snake) || snake.IsHitTail())
                 {
+                    sounds.PlayGameOver();
+                    Thread.Sleep(1000);
                     Mängijad mängijad = new Mängijad();
                     mängijad.Salvesta_faili(nimi, kontrollida);
                     break;
@@ -49,10 +53,12 @@ namespace Praktiline_too__Madu_Uss
                 {
                     if (snake.Eat(foodItems[i]))
                     {
+
                         madu_Värv.Värvi_muuta(foodItems[i].symbol);
 
                         kontrollida.lisaPunkte(foodItems[i].symbol);
                         kontrollida.Skoori_kuva();
+                        sounds.PlayEat();
 
                         //Kontrolli, mis sümboli madu ära sõi: + või - (Проверка, какой символ съела змейка: + или -)
                         if (foodItems[i].symbol == '+')

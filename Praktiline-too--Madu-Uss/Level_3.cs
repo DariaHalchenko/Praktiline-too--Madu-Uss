@@ -10,11 +10,13 @@ namespace Praktiline_too__Madu_Uss
     { 
         public void Level_3_Play(string nimi)
         {
-            Walls walls = new Walls(35, 20);
+            Walls walls = new Walls(45, 25);
             walls.Draw();
 
+            Sounds sounds = new Sounds("../../../");
+
             //kiirus (скорость)
-            kiiruse_muutus kiiruseMuutus = new kiiruse_muutus(3);
+            kiiruse_muutus kiiruseMuutus = new kiiruse_muutus(5);
 
             //Madu loomine (Создание змейки)
             Point p = new Point(4, 5, '*');
@@ -38,6 +40,8 @@ namespace Praktiline_too__Madu_Uss
             {
                 if (walls.IsHit(snake) || snake.IsHitTail())
                 {
+                    sounds.PlayGameOver();
+                    Thread.Sleep(1000);
                     Mängijad mängijad = new Mängijad();
                     mängijad.Salvesta_faili(nimi, kontrollida);
                     break;
@@ -49,7 +53,7 @@ namespace Praktiline_too__Madu_Uss
                     {
                         kontrollida.lisaPunkte(foodItems[i].symbol);
                         kontrollida.Skoori_kuva();
-
+                        sounds.PlayEat();
                         //Kui toit on söödud, loome selle uude kohta (Если еда съедена, создаём её на новом месте)
                         Point newFood = foodCreator.CreateFood();
                         foodItems[i] = newFood;

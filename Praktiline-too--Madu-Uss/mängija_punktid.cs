@@ -39,7 +39,7 @@ namespace Praktiline_too__Madu_Uss
             }
             else if (FoodSymbols == '#')
             {
-                kontrollida = kontrollida - 10;
+                kontrollida += 10;
             }
             else if (FoodSymbols == '%')
             {
